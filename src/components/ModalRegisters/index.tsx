@@ -132,7 +132,7 @@ const ModalRegisters = ({ endpoint, type, dataKey, title, children }: ModalRegis
 
   return (
     <C.ModalContainer>
-      <C.ModalContent className="onEnterStoreModal" ref={ref}>
+      <C.ModalContent className="onEnterModal" ref={ref}>
         <C.ModalHeader>
           <C.ModalTitle>{title}</C.ModalTitle>
           <C.ModalCloseButton

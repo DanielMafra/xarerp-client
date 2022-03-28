@@ -1,0 +1,10 @@
+/* ANIMATIONS */
+
+.onEnterModal {
+  animation: onEnterModalAnimation .3s;
+}
+
+@keyframes onEnterModalAnimation {
+    from { margin-top: -200px }
+    to   { margin-top: 0px }
+}
