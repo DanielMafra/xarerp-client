@@ -23,11 +23,11 @@ const Sellers = () => {
   const [users, setUsers] = useState<Options[]>([]);
 
   const [user, setUser] = useState('');
-  const [comission, setComission] = useState(0);
+  const [commission, setCommission] = useState(0);
 
   const dataProps: CreateSeller = {
     user,
-    comission
+    commission
   }
 
   const dataTable: TableRegisters = {
@@ -41,7 +41,7 @@ const Sellers = () => {
         width: 280
       },
       {
-        key: 'comission_formatted',
+        key: 'commission_formatted',
         title: 'Comissão',
         width: 280
       },
@@ -56,9 +56,9 @@ const Sellers = () => {
 
   const handleNewSeller = async () => {
     setUser('');
-    setComission(0);
+    setCommission(0);
 
-    const resultUsers = await api.fetchAllData('users', Number(0));
+    const resultUsers = await api.getRegisters('users', Number(0));
 
     if (resultUsers.users) {
       resultUsers.users[1].map((item: { name: string; id: string; }, index: any) => (
@@ -101,7 +101,7 @@ const Sellers = () => {
 
     if (
       user !== '' &&
-      comission > 0
+      commission > 0
     ) {
       dispatch({
         type: 'REGISTER_CHANGE_ISREADY',
@@ -124,12 +124,12 @@ const Sellers = () => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, comission]);
+  }, [user, commission]);
 
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
-        const resultUsers = await api.fetchAllData('users', Number(0));
+        const resultUsers = await api.getRegisters('users', Number(0));
 
         if (resultUsers.users) {
           resultUsers.users[1].map((item: { name: string; id: string; }, index: any) => (
@@ -144,7 +144,7 @@ const Sellers = () => {
       })();
 
       setUser(state.register.props.user_id);
-      setComission(state.register.props.comission);
+      setCommission(state.register.props.commission);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.modalRegisters.editingRegister, state.modalRegisters.registerEditingId]);
@@ -172,8 +172,8 @@ const Sellers = () => {
               <Input
                 label="Comissão"
                 placeholder="3"
-                value={comission > 0 ? comission : ''}
-                onChange={(e: any) => setComission(parseInt(e.target.value))} />
+                value={commission > 0 ? commission : ''}
+                onChange={(e: any) => setCommission(parseInt(e.target.value))} />
             </>
           )}
         </ModalRegisters>

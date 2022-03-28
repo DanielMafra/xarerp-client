@@ -4,6 +4,11 @@ export const useApi = () => ({
 
   /*===== Register / Tables =====*/
 
+  getRegisters: async (endpoint: string, currentPage: number, query: string = '') => {
+    const response = await api.get(`/v1/${endpoint}/get/?page=${currentPage}&q=${query}`);
+    return response.data;
+  },
+
   fetchAllData: async (endpoint: string, currentPage: number, query: string = '') => {
     const response = await api.get(`/v1/${endpoint}/?page=${currentPage}&q=${query}`);
     return response.data;

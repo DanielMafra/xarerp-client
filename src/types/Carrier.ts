@@ -1,15 +1,15 @@
 export type Carrier = {
   id: string;
   name: string;
-  states: string;
+  region: string;
 }
 
 export type CreateCarrier = {
   name: string;
-  states: string;
+  region: string;
 }
 
 export type UpdateCarrier = {
   name?: string;
-  states?: string;
+  region?: string;
 }

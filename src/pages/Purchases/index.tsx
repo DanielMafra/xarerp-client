@@ -74,9 +74,9 @@ const Purchases = () => {
     setQuantity(0);
     setUnit_price(0);
 
-    const resultStores = await api.fetchAllData('stores', Number(0));
-    const resultProviders = await api.fetchAllData('providers', Number(0));
-    const resultProducts = await api.fetchAllData('products', Number(0));
+    const resultStores = await api.getRegisters('stores', Number(0));
+    const resultProviders = await api.getRegisters('providers', Number(0));
+    const resultProducts = await api.getRegisters('products', Number(0));
 
     if (resultStores.stores) {
       resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (
@@ -172,9 +172,9 @@ const Purchases = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
-        const resultStores = await api.fetchAllData('stores', Number(0));
-        const resultProviders = await api.fetchAllData('providers', Number(0));
-        const resultProducts = await api.fetchAllData('products', Number(0));
+        const resultStores = await api.getRegisters('stores', Number(0));
+        const resultProviders = await api.getRegisters('providers', Number(0));
+        const resultProducts = await api.getRegisters('products', Number(0));
 
         if (resultStores.stores) {
           resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (

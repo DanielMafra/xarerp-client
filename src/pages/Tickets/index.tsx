@@ -66,7 +66,7 @@ const Tickets = () => {
     setDescription('');
     setUnity('');
 
-    const resultStores = await api.fetchAllData('stores', Number(0));
+    const resultStores = await api.getRegisters('stores', Number(0));
 
     if (resultStores.stores) {
       resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (
@@ -138,7 +138,7 @@ const Tickets = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
-        const resultStores = await api.fetchAllData('stores', Number(0));
+        const resultStores = await api.getRegisters('stores', Number(0));
 
         if (resultStores.stores) {
           resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (

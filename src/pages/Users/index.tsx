@@ -120,7 +120,7 @@ const Users = () => {
     },
     {
       title: 'Financeiro',
-      roles: ['view_financial', 'create_register', 'update_register', 'delete_register']
+      roles: ['view_financial', 'create_financial', 'update_financial', 'delete_financial']
     },
     {
       title: 'Usuários',
@@ -144,7 +144,7 @@ const Users = () => {
       }
     });
 
-    const resultStores = await api.fetchAllData('stores', Number(0));
+    const resultStores = await api.getRegisters('stores', Number(0));
 
     if (resultStores.stores) {
       resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (
@@ -218,7 +218,7 @@ const Users = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
-        const resultStores = await api.fetchAllData('stores', Number(0));
+        const resultStores = await api.getRegisters('stores', Number(0));
 
         if (resultStores.stores) {
           resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (

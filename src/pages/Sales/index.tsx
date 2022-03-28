@@ -75,11 +75,11 @@ const Sales = () => {
     setSeller('');
     setCarrier('');
 
-    const resultProducts = await api.fetchAllData('products', Number(0));
-    const resultStores = await api.fetchAllData('stores', Number(0));
-    const resultClients = await api.fetchAllData('clients', Number(0));
-    const resultSellers = await api.fetchAllData('sellers', Number(0));
-    const resultCarriers = await api.fetchAllData('carriers', Number(0));
+    const resultProducts = await api.getRegisters('products', Number(0));
+    const resultStores = await api.getRegisters('stores', Number(0));
+    const resultClients = await api.getRegisters('clients', Number(0));
+    const resultSellers = await api.getRegisters('sellers', Number(0));
+    const resultCarriers = await api.getRegisters('carriers', Number(0));
 
     if (resultProducts.products) {
       resultProducts.products[1].map((item: { name: string; id: string; }, index: any) => (
@@ -198,11 +198,11 @@ const Sales = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
-        const resultProducts = await api.fetchAllData('products', Number(0));
-        const resultStores = await api.fetchAllData('stores', Number(0));
-        const resultClients = await api.fetchAllData('clients', Number(0));
-        const resultSellers = await api.fetchAllData('sellers', Number(0));
-        const resultCarriers = await api.fetchAllData('carriers', Number(0));
+        const resultProducts = await api.getRegisters('products', Number(0));
+        const resultStores = await api.getRegisters('stores', Number(0));
+        const resultClients = await api.getRegisters('clients', Number(0));
+        const resultSellers = await api.getRegisters('sellers', Number(0));
+        const resultCarriers = await api.getRegisters('carriers', Number(0));
 
         if (resultProducts.products) {
           resultProducts.products[1].map((item: { name: string; id: string; }, index: any) => (

@@ -46,7 +46,7 @@ const Financial = () => {
   const dataTable: TableRegisters = {
     endpoint: "financial/registers",
     key: "financial",
-    roles: ['create_register', 'update_register', 'delete_register'],
+    roles: ['create_financial', 'update_financial', 'delete_financial'],
     tableHeads: [
       {
         key: 'unity',
@@ -77,7 +77,7 @@ const Financial = () => {
     setUnity('');
     setValue(0);
 
-    const resultStores = await api.fetchAllData('stores', Number(0));
+    const resultStores = await api.getRegisters('stores', Number(0));
 
     if (resultStores.stores) {
       resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (
@@ -149,7 +149,7 @@ const Financial = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
-        const resultStores = await api.fetchAllData('stores', Number(0));
+        const resultStores = await api.getRegisters('stores', Number(0));
 
         if (resultStores.stores) {
           resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (

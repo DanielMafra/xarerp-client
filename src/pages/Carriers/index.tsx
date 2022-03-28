@@ -14,11 +14,11 @@ const Carriers = () => {
   const { state, dispatch } = useContext(GlobalContext);
 
   const [name, setName] = useState('');
-  const [states, setStates] = useState('Sul');
+  const [region, setRegion] = useState('Sul');
 
   const dataProps: CreateCarrier = {
     name,
-    states
+    region
   }
 
   const dataOptionsCarrier = [
@@ -55,7 +55,7 @@ const Carriers = () => {
         width: 280
       },
       {
-        key: 'states',
+        key: 'region',
         title: 'Cobertura',
         width: 280
       },
@@ -70,7 +70,7 @@ const Carriers = () => {
 
   const handleNewCarrier = () => {
     setName('');
-    setStates('Sul');
+    setRegion('Sul');
 
     dispatch({
       type: 'MODALREGISTERS_SET_LOADINGREGISTER',
@@ -100,7 +100,7 @@ const Carriers = () => {
       }
     });
 
-    if (name !== '' && states !== '') {
+    if (name !== '' && region !== '') {
       dispatch({
         type: 'REGISTER_CHANGE_ISREADY',
         payload: {
@@ -122,12 +122,12 @@ const Carriers = () => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [name, states]);
+  }, [name, region]);
 
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       setName(state.register.props.name);
-      setStates(state.register.props.states);
+      setRegion(state.register.props.states);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.modalRegisters.editingRegister, state.modalRegisters.registerEditingId]);
@@ -148,7 +148,7 @@ const Carriers = () => {
           ) : (
             <>
               <Input label="Nome" placeholder="Transportadora 1" value={name} onChange={(e: any) => setName(e.target.value)} />
-              <Select label="Cobertura" dataOptions={dataOptionsCarrier} value={states} onChange={(e: any) => setStates(e.target.value)} />
+              <Select label="Cobertura" dataOptions={dataOptionsCarrier} value={region} onChange={(e: any) => setRegion(e.target.value)} />
             </>
           )}
         </ModalRegisters>

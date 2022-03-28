@@ -89,9 +89,9 @@ const Products = () => {
     setValidity('');
     setQuantity(0);
 
-    const resultCategories = await api.fetchAllData('categories', Number(0));
-    const resultStores = await api.fetchAllData('stores', Number(0));
-    const resultProviders = await api.fetchAllData('providers', Number(0));
+    const resultCategories = await api.getRegisters('categories', Number(0));
+    const resultStores = await api.getRegisters('stores', Number(0));
+    const resultProviders = await api.getRegisters('providers', Number(0));
 
     if (resultCategories.categories) {
       resultCategories.categories.map((item: { title: string; id: string; }, index: any) => (
@@ -192,9 +192,9 @@ const Products = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
-        const resultCategories = await api.fetchAllData('categories', Number(0));
-        const resultStores = await api.fetchAllData('stores', Number(0));
-        const resultProviders = await api.fetchAllData('providers', Number(0));
+        const resultCategories = await api.getRegisters('categories', Number(0));
+        const resultStores = await api.getRegisters('stores', Number(0));
+        const resultProviders = await api.getRegisters('providers', Number(0));
 
         if (resultCategories.categories) {
           resultCategories.categories.map((item: { title: string; id: string; }, index: any) => (

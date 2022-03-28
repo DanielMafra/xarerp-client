@@ -3,7 +3,7 @@ export type Client = {
   name: string;
   email: string;
   tel: string;
-  cep: number;
+  cep: string;
   city: string;
   state: string;
   user_id: string;
@@ -16,7 +16,7 @@ export type CreateClient = {
   name: string;
   email: string;
   tel: string;
-  cep: number;
+  cep: string;
   city: string;
   state: string;
   unity: string;
@@ -26,7 +26,7 @@ export type UpdateClient = {
   name?: string;
   email?: string;
   tel?: string;
-  cep?: number;
+  cep?: string;
   city?: string;
   state?: string;
   user?: string;

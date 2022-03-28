@@ -25,7 +25,7 @@ const Clients = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [tel, setTel] = useState('');
-  const [cep, setCep] = useState(0);
+  const [cep, setCep] = useState('');
   const [city, setCity] = useState('');
   const [uf, setUf] = useState('');
   const [unity, setUnity] = useState('');
@@ -73,12 +73,12 @@ const Clients = () => {
     setName('');
     setEmail('');
     setTel('');
-    setCep(0);
+    setCep('');
     setCity('');
     setUf('');
     setUnity('');
 
-    const resultStores = await api.fetchAllData('stores', Number(0));
+    const resultStores = await api.getRegisters('stores', Number(0));
 
     if (resultStores.stores) {
       resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (
@@ -123,7 +123,7 @@ const Clients = () => {
       name !== '' &&
       email !== '' &&
       tel !== '' &&
-      cep > 0 &&
+      cep !== '' &&
       city !== '' &&
       uf !== '' &&
       unity !== ''
@@ -154,7 +154,7 @@ const Clients = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
-        const resultStores = await api.fetchAllData('stores', Number(0));
+        const resultStores = await api.getRegisters('stores', Number(0));
 
         if (resultStores.stores) {
           resultStores.stores[1].map((item: { name: string; id: string; }, index: any) => (
@@ -218,8 +218,8 @@ const Clients = () => {
               <Input
                 label="CEP"
                 placeholder="88888888"
-                value={cep > 0 ? cep : ''}
-                onChange={(e: any) => setCep(parseInt(e.target.value))}
+                value={cep}
+                onChange={(e: any) => setCep(e.target.value)}
               />
 
               <Input
