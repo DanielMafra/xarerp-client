@@ -74,6 +74,10 @@ const Purchases = () => {
     setQuantity(0);
     setUnit_price(0);
 
+    setStores([]);
+    setProviders([]);
+    setProducts([]);
+
     const resultStores = await api.getRegisters('stores', Number(0));
     const resultProviders = await api.getRegisters('providers', Number(0));
     const resultProducts = await api.getRegisters('products', Number(0));
@@ -172,6 +176,10 @@ const Purchases = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
+        setStores([]);
+        setProviders([]);
+        setProducts([]);
+
         const resultStores = await api.getRegisters('stores', Number(0));
         const resultProviders = await api.getRegisters('providers', Number(0));
         const resultProducts = await api.getRegisters('products', Number(0));

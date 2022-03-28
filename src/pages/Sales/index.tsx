@@ -75,6 +75,12 @@ const Sales = () => {
     setSeller('');
     setCarrier('');
 
+    setProducts([]);
+    setStores([]);
+    setClients([]);
+    setSellers([]);
+    setCarriers([]);
+
     const resultProducts = await api.getRegisters('products', Number(0));
     const resultStores = await api.getRegisters('stores', Number(0));
     const resultClients = await api.getRegisters('clients', Number(0));
@@ -198,6 +204,12 @@ const Sales = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
+        setProducts([]);
+        setStores([]);
+        setClients([]);
+        setSellers([]);
+        setCarriers([]);
+
         const resultProducts = await api.getRegisters('products', Number(0));
         const resultStores = await api.getRegisters('stores', Number(0));
         const resultClients = await api.getRegisters('clients', Number(0));

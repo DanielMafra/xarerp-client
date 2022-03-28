@@ -58,6 +58,8 @@ const Sellers = () => {
     setUser('');
     setCommission(0);
 
+    setUsers([]);
+
     const resultUsers = await api.getRegisters('users', Number(0));
 
     if (resultUsers.users) {
@@ -129,6 +131,8 @@ const Sellers = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
+        setUsers([]);
+
         const resultUsers = await api.getRegisters('users', Number(0));
 
         if (resultUsers.users) {

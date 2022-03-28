@@ -89,6 +89,10 @@ const Products = () => {
     setValidity('');
     setQuantity(0);
 
+    setCategories([]);
+    setStores([]);
+    setProviders([]);
+
     const resultCategories = await api.getRegisters('categories', Number(0));
     const resultStores = await api.getRegisters('stores', Number(0));
     const resultProviders = await api.getRegisters('providers', Number(0));
@@ -192,6 +196,10 @@ const Products = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
+        setCategories([]);
+        setStores([]);
+        setProviders([]);
+
         const resultCategories = await api.getRegisters('categories', Number(0));
         const resultStores = await api.getRegisters('stores', Number(0));
         const resultProviders = await api.getRegisters('providers', Number(0));
@@ -317,6 +325,7 @@ const Products = () => {
               <Input
                 label="Validade"
                 placeholder="2022-05-10"
+                type="date"
                 value={validity}
                 onChange={(e: any) => setValidity(e.target.value)}
               />

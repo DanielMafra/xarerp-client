@@ -66,6 +66,8 @@ const Tickets = () => {
     setDescription('');
     setUnity('');
 
+    setStores([]);
+
     const resultStores = await api.getRegisters('stores', Number(0));
 
     if (resultStores.stores) {
@@ -138,6 +140,8 @@ const Tickets = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
+        setStores([]);
+
         const resultStores = await api.getRegisters('stores', Number(0));
 
         if (resultStores.stores) {

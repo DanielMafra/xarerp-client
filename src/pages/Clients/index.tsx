@@ -78,6 +78,8 @@ const Clients = () => {
     setUf('');
     setUnity('');
 
+    setStores([]);
+
     const resultStores = await api.getRegisters('stores', Number(0));
 
     if (resultStores.stores) {
@@ -154,6 +156,8 @@ const Clients = () => {
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
       (async () => {
+        setStores([]);
+
         const resultStores = await api.getRegisters('stores', Number(0));
 
         if (resultStores.stores) {
