@@ -2,6 +2,13 @@ import api from '../services/axios';
 
 export const useApi = () => ({
 
+  /*===== Dashboard =====*/
+
+  getData: async () => {
+    const response = await api.get('/v1/dashboard');
+    return response.data;
+  },
+
   /*===== Register / Tables =====*/
 
   getRegisters: async (endpoint: string, currentPage: number, query: string = '') => {
