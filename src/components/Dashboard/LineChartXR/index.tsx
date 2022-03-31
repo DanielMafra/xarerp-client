@@ -10,7 +10,7 @@ type LineChartXRProps = {
 const LineChartXR = ({ data, dataKeyLine, nameLine, dataKeyXAxis }: LineChartXRProps) => {
   return (
     <ResponsiveContainer>
-      <LineChart data={data}>
+      <LineChart data={data} margin={{ top: 16 }}>
         <Line type="monotone" dataKey={dataKeyLine} stroke="#8884d8" name={nameLine} />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <XAxis dataKey={dataKeyXAxis} />
