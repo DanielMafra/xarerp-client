@@ -70,3 +70,19 @@ export const SalesDaily = styled.div`
   width: 100%;
   height: 280px;
 `;
+
+export const AverageTicket = styled.div`
+  background-color: #191925;
+  margin-top: 24px;
+  padding: 8px 16px;
+  text-align: center;
+  border-radius: 8px;
+
+  span {
+    font-size: 16px;
+  }
+
+  strong {
+    font-size: 18px;
+  }
+`;

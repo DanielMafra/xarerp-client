@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useApi } from '../../hooks/useApi';
 import LineChartXR from '../../components/Dashboard/LineChartXR';
+import BarChartXR from '../../components/Dashboard/BarChartXR';
 import ResumeBalance from '../../components/Dashboard/ResumeBalance';
 import LastSale from '../../components/Dashboard/LastSale';
 import * as C from './styles';
@@ -45,6 +46,20 @@ const Dashboard = () => {
                   />
                 </C.SalesDaily>
               </C.SalesArea>
+            </C.ContainerSections>
+
+            <C.ContainerSections>
+              <C.TitleSections>Top 05 produtos mais vendidos</C.TitleSections>
+              <BarChartXR
+                data={data.result.products.list}
+                dataKeyLine="sold_amount"
+                nameLine="Total vendido"
+                dataKeyXAxis="name"
+              />
+              <C.AverageTicket>
+                <span>Ticket médio: </span>
+                <strong>R$ {data.result.products.averageTotalTicket}</strong>
+              </C.AverageTicket>
             </C.ContainerSections>
           </>
         }
