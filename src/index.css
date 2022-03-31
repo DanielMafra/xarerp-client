@@ -5,6 +5,15 @@
 }
 
 @keyframes onEnterModalAnimation {
-    from { margin-top: -200px }
-    to   { margin-top: 0px }
+  from {
+    margin-top: -200px
+  }
+
+  to {
+    margin-top: 0px
+  }
+}
+
+.recharts-wrapper {
+  width: 0 !important;
 }
