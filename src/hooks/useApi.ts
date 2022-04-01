@@ -4,8 +4,8 @@ export const useApi = () => ({
 
   /*===== Dashboard =====*/
 
-  getData: async () => {
-    const response = await api.get('/v1/dashboard');
+  getData: async (targetDate: number) => {
+    const response = await api.get(`/v1/dashboard/${targetDate}`);
     return response.data;
   },
 

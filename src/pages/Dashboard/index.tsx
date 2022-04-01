@@ -11,9 +11,10 @@ import * as C from './styles';
 const Dashboard = () => {
   const api = useApi();
   const [data, setData] = useState<any>([]);
+  const [targetDate, setTargetDate] = useState(7);
 
   const fetchData = async () => {
-    let result = await api.getData();
+    let result = await api.getData(targetDate);
 
     if (result) {
       setData(result);
@@ -23,7 +24,7 @@ const Dashboard = () => {
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [targetDate]);
 
   return (
     <C.Container>
@@ -32,7 +33,20 @@ const Dashboard = () => {
           &&
           <>
             <C.ContainerSections>
-              <C.TitleSections>Vendas nos últimos 07 dias</C.TitleSections>
+              <C.TitleSections>Vendas nos últimos
+                <button
+                  className={targetDate === 7 ? 'active' : ''}
+                  onClick={() => setTargetDate(7)}
+                >07 dias</button>
+                <button
+                  className={targetDate === 15 ? 'active' : ''}
+                  onClick={() => setTargetDate(15)}
+                >15 dias</button>
+                <button
+                  className={targetDate === 30 ? 'active' : ''}
+                  onClick={() => setTargetDate(30)}
+                >30 dias</button>
+              </C.TitleSections>
               <C.SalesArea>
                 <C.ResumeBalanceArea>
                   <ResumeBalance value={data.result.sales.profit} type="Lucro" />
@@ -51,7 +65,20 @@ const Dashboard = () => {
             </C.ContainerSections>
 
             <C.ContainerSections>
-              <C.TitleSections>Lucro por tipo de unidade nos últimos 07 dias</C.TitleSections>
+              <C.TitleSections>Lucro por tipo de unidade nos últimos
+                <button
+                  className={targetDate === 7 ? 'active' : ''}
+                  onClick={() => setTargetDate(7)}
+                >07 dias</button>
+                <button
+                  className={targetDate === 15 ? 'active' : ''}
+                  onClick={() => setTargetDate(15)}
+                >15 dias</button>
+                <button
+                  className={targetDate === 30 ? 'active' : ''}
+                  onClick={() => setTargetDate(30)}
+                >30 dias</button>
+              </C.TitleSections>
               <C.SalesArea>
                 <C.SalesDaily>
                   <PieChartXR
@@ -94,7 +121,20 @@ const Dashboard = () => {
             </C.ContainerSections>
 
             <C.ContainerSections>
-              <C.TitleSections>Lançamentos manuais nos últimos 07 dias</C.TitleSections>
+              <C.TitleSections>Lançamentos manuais nos últimos
+                <button
+                  className={targetDate === 7 ? 'active' : ''}
+                  onClick={() => setTargetDate(7)}
+                >07 dias</button>
+                <button
+                  className={targetDate === 15 ? 'active' : ''}
+                  onClick={() => setTargetDate(15)}
+                >15 dias</button>
+                <button
+                  className={targetDate === 30 ? 'active' : ''}
+                  onClick={() => setTargetDate(30)}
+                >30 dias</button>
+              </C.TitleSections>
               <C.SalesArea>
                 <C.ResumeBalanceArea>
                   <ResumeBalance value={data.result.financial.difference} type="Saldo" />

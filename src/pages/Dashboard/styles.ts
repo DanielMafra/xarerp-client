@@ -17,6 +17,21 @@ export const TitleSections = styled.strong`
   font-size: 14px;
   margin-bottom: 24px;
   text-align: end;
+
+  button {
+    margin-left: 8px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background-color: #191925;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+
+    &.active {
+    background-color: #8884d8;
+  }
+  }
 `;
 
 export const Graphics = styled.div`
