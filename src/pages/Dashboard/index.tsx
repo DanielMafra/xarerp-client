@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useApi } from '../../hooks/useApi';
 import LineChartXR from '../../components/Dashboard/LineChartXR';
 import BarChartXR from '../../components/Dashboard/BarChartXR';
+import BarChartPositiveAndNegativeXR from '../../components/Dashboard/BarChartPositiveAndNegativeXR';
 import ResumeBalance from '../../components/Dashboard/ResumeBalance';
 import LastSale from '../../components/Dashboard/LastSale';
 import * as C from './styles';
@@ -61,6 +62,27 @@ const Dashboard = () => {
                 <strong>R$ {data.result.products.averageTotalTicket}</strong>
               </C.AverageTicket>
             </C.ContainerSections>
+
+            <C.ContainerSections>
+              <C.TitleSections>Lançamentos manuais nos últimos 07 dias</C.TitleSections>
+              <C.SalesArea>
+                <C.ResumeBalanceArea>
+                  <ResumeBalance value={data.result.financial.difference} type="Saldo" />
+                  <ResumeBalance value={data.result.financial.totalEntries} type="Entrada" />
+                  <ResumeBalance value={data.result.financial.totalOutputs} type="Saída" />
+                </C.ResumeBalanceArea>
+                <C.SalesDaily>
+                  <BarChartPositiveAndNegativeXR
+                    data={data.result.financial.list}
+                    dataKeyPositive="positive"
+                    datasKeyNegative="negative"
+                    nameLinePositive="Entrada"
+                    nameLineNegative="Saída"
+                    dataKeyXAxis="date"
+                  />
+                </C.SalesDaily>
+              </C.SalesArea>
+            </C.ContainerSections>
           </>
         }
       </C.Graphics>
@@ -79,17 +101,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard;
-
-/*
-
-{data.result
-        &&
-        <LineChartXR
-          data={data.result.sales.list}
-          dataKeyLine="quantitySales"
-          nameLine="Vendas"
-          dataKeyXAxis="date"
-        />
-      }
-
- */
