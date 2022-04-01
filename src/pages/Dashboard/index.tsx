@@ -3,6 +3,7 @@ import { useApi } from '../../hooks/useApi';
 import LineChartXR from '../../components/Dashboard/LineChartXR';
 import BarChartXR from '../../components/Dashboard/BarChartXR';
 import BarChartPositiveAndNegativeXR from '../../components/Dashboard/BarChartPositiveAndNegativeXR';
+import PieChartXR from '../../components/Dashboard/PieChartXR';
 import ResumeBalance from '../../components/Dashboard/ResumeBalance';
 import LastSale from '../../components/Dashboard/LastSale';
 import * as C from './styles';
@@ -46,6 +47,35 @@ const Dashboard = () => {
                     dataKeyXAxis="date"
                   />
                 </C.SalesDaily>
+              </C.SalesArea>
+            </C.ContainerSections>
+
+            <C.ContainerSections>
+              <C.TitleSections>Lucro por tipo de unidade nos últimos 07 dias</C.TitleSections>
+              <C.SalesArea>
+                <C.SalesDaily>
+                  <PieChartXR
+                    data={data.result.stores.profitByType}
+                    dataKey="profit"
+                    nameKey="type"
+                  />
+                </C.SalesDaily>
+                <C.TableRanking>
+                  <C.TableLine>
+                    <tr>
+                      <C.TableLineItem>Top lojas</C.TableLineItem>
+                    </tr>
+                  </C.TableLine>
+                  {data.result.stores.rankingByType.map((store: any, index: number) => (
+                    <C.TableContent key={index}>
+                      <tr>
+                        <C.TableContentItem>{store.name}</C.TableContentItem>
+                        <C.TableContentItem>{store.type}</C.TableContentItem>
+                        <C.TableContentItem>R$ {store.profit}</C.TableContentItem>
+                      </tr>
+                    </C.TableContent>
+                  ))}
+                </C.TableRanking>
               </C.SalesArea>
             </C.ContainerSections>
 

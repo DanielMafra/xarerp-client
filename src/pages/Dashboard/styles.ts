@@ -86,3 +86,27 @@ export const AverageTicket = styled.div`
     font-size: 18px;
   }
 `;
+
+export const TableRanking = styled.table`
+  border-collapse: collapse;
+  width: 660px;
+  margin-left: 64px;
+`;
+
+export const TableLine = styled.thead`
+`;
+
+export const TableLineItem = styled.th`
+  text-align: start;
+  padding-bottom: 16px;
+`;
+
+export const TableContent = styled.tbody`
+&:nth-child(odd) {
+    background-color: #191925;
+  }
+`;
+
+export const TableContentItem = styled.td`
+  padding: 8px;
+`;
