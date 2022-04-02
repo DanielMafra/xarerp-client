@@ -62,5 +62,15 @@ export default {
   },
   icons: {
     search: 'url("/assets/search-light.svg")'
+  },
+  dashboard: {
+    background_tooltip: '#f2f3f5',
+    reference_graphic_primary: '#8884d8',
+    reference_graphic_secondary: '#82ca9d',
+    cartesian_stroke: '#ccc',
+    background_balances: '#cad0db',
+    background_graphics_container: '#f9fafa',
+    filter_button_background: '#b6c6de',
+    filter_button_background_active: '#8884d8'
   }
 };

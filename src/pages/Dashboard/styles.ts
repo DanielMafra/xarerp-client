@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerSections = styled.div`
-  background-color: #22222f;
+  background-color: ${props => props.theme.dashboard.background_graphics_container};
   padding: 16px 24px 42px 24px;
   border-radius: 8px;
 `;
@@ -24,12 +24,12 @@ export const TitleSections = styled.strong`
     border: none;
     outline: none;
     border-radius: 4px;
-    background-color: #191925;
+    background-color: ${props => props.theme.dashboard.filter_button_background};
     color: rgba(255,255,255,0.8);
     cursor: pointer;
 
     &.active {
-    background-color: #8884d8;
+    background-color: ${props => props.theme.dashboard.filter_button_background_active};
   }
   }
 `;
@@ -42,7 +42,7 @@ export const Graphics = styled.div`
 `;
 
 export const LastSalesArea = styled.div`
-  background-color: #22222f;
+  background-color: ${props => props.theme.dashboard.background_graphics_container};
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -87,7 +87,7 @@ export const SalesDaily = styled.div`
 `;
 
 export const AverageTicket = styled.div`
-  background-color: #191925;
+  background-color: ${props => props.theme.dashboard.filter_button_background};
   margin-top: 24px;
   padding: 8px 16px;
   text-align: center;
@@ -118,7 +118,7 @@ export const TableLineItem = styled.th`
 
 export const TableContent = styled.tbody`
 &:nth-child(odd) {
-    background-color: #191925;
+    background-color: ${props => props.theme.dashboard.filter_button_background};
   }
 `;
 

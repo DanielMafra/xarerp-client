@@ -5,7 +5,7 @@ export type ThemeType = {
 }
 
 export const themeInitialState: ThemeType = {
-  type: 'light',
+  type: 'dark',
 }
 
 export const themeReducer = (state: ThemeType, action: reducerActionType) => {

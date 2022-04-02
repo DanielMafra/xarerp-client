@@ -62,5 +62,15 @@ export default {
   },
   icons: {
     search: 'url("/assets/search-dark.svg")'
+  },
+  dashboard: {
+    background_tooltip: '#2b2b37',
+    reference_graphic_primary: '#8884d8',
+    reference_graphic_secondary: '#82ca9d',
+    cartesian_stroke: '#ccc',
+    background_balances: '#2b2b37',
+    background_graphics_container: '#22222f',
+    filter_button_background: '#191925',
+    filter_button_background_active: '#8884d8'
   }
 };

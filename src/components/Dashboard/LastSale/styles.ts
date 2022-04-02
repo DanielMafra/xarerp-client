@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #2b2b37;
+  background-color: ${props => props.theme.dashboard.background_balances};
   border-radius: 8px;
   padding: 12px 18px;
   display: flex;

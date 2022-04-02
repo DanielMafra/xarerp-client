@@ -158,13 +158,19 @@ const Dashboard = () => {
       </C.Graphics>
 
       <C.LastSalesArea>
-        <C.TitleLastSales>Últimas vendas</C.TitleLastSales>
         {data.result
           &&
-          data.result.sales.lastSales.map((item: any, index: number) => (
-            <LastSale key={index} price={item.price} name={item.name} unity={item.unity} quantity={item.quantity} />
-          ))
-        }
+          <>
+            <C.TitleLastSales>Últimas vendas</C.TitleLastSales>
+            {data.result.sales.lastSales.length > 0 ? (
+              data.result.sales.lastSales.map((item: any, index: number) => (
+                <LastSale key={index} price={item.price} name={item.name} unity={item.unity} quantity={item.quantity} />
+              ))
+            ) : (
+              <p style={{ fontSize: '12px' }}>Nenhum registro.</p>
+            )
+            }
+          </>}
       </C.LastSalesArea>
     </C.Container>
   )

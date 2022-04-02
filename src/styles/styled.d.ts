@@ -64,6 +64,16 @@ declare module 'styled-components' {
     },
     icons: {
       search: string
+    },
+    dashboard: {
+      background_tooltip: string,
+      reference_graphic_primary: string,
+      reference_graphic_secondary: string,
+      cartesian_stroke: string,
+      background_balances: string,
+      background_graphics_container: string,
+      filter_button_background: string,
+      filter_button_background_active: string
     }
   }
 }

@@ -1,4 +1,6 @@
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
+import { useContext } from "react";
+import { ThemeContext } from 'styled-components';
 
 type PieChartXRProps = {
   data: any;
@@ -7,6 +9,8 @@ type PieChartXRProps = {
 }
 
 const PieChartXR = ({ data, dataKey, nameKey }: PieChartXRProps) => {
+  const { dashboard } = useContext(ThemeContext);
+
   return (
     <ResponsiveContainer>
       <PieChart>
@@ -19,7 +23,7 @@ const PieChartXR = ({ data, dataKey, nameKey }: PieChartXRProps) => {
           cx="50%"
           cy="50%"
           outerRadius={80}
-          fill="#8884d8"
+          fill={dashboard.reference_graphic_primary}
         />
       </PieChart>
     </ResponsiveContainer>
