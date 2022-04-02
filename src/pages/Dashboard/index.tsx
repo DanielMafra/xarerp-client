@@ -34,18 +34,20 @@ const Dashboard = () => {
           <>
             <C.ContainerSections>
               <C.TitleSections>Vendas nos últimos
-                <button
-                  className={targetDate === 7 ? 'active' : ''}
-                  onClick={() => setTargetDate(7)}
-                >07 dias</button>
-                <button
-                  className={targetDate === 15 ? 'active' : ''}
-                  onClick={() => setTargetDate(15)}
-                >15 dias</button>
-                <button
-                  className={targetDate === 30 ? 'active' : ''}
-                  onClick={() => setTargetDate(30)}
-                >30 dias</button>
+                <C.BtnArea>
+                  <button
+                    className={targetDate === 7 ? 'active' : ''}
+                    onClick={() => setTargetDate(7)}
+                  >07 dias</button>
+                  <button
+                    className={targetDate === 15 ? 'active' : ''}
+                    onClick={() => setTargetDate(15)}
+                  >15 dias</button>
+                  <button
+                    className={targetDate === 30 ? 'active' : ''}
+                    onClick={() => setTargetDate(30)}
+                  >30 dias</button>
+                </C.BtnArea>
               </C.TitleSections>
               <C.SalesArea>
                 <C.ResumeBalanceArea>
@@ -66,18 +68,20 @@ const Dashboard = () => {
 
             <C.ContainerSections>
               <C.TitleSections>Lucro por tipo de unidade nos últimos
-                <button
-                  className={targetDate === 7 ? 'active' : ''}
-                  onClick={() => setTargetDate(7)}
-                >07 dias</button>
-                <button
-                  className={targetDate === 15 ? 'active' : ''}
-                  onClick={() => setTargetDate(15)}
-                >15 dias</button>
-                <button
-                  className={targetDate === 30 ? 'active' : ''}
-                  onClick={() => setTargetDate(30)}
-                >30 dias</button>
+                <C.BtnArea>
+                  <button
+                    className={targetDate === 7 ? 'active' : ''}
+                    onClick={() => setTargetDate(7)}
+                  >07 dias</button>
+                  <button
+                    className={targetDate === 15 ? 'active' : ''}
+                    onClick={() => setTargetDate(15)}
+                  >15 dias</button>
+                  <button
+                    className={targetDate === 30 ? 'active' : ''}
+                    onClick={() => setTargetDate(30)}
+                  >30 dias</button>
+                </C.BtnArea>
               </C.TitleSections>
               <C.SalesArea>
                 <C.SalesDaily>
@@ -122,18 +126,20 @@ const Dashboard = () => {
 
             <C.ContainerSections>
               <C.TitleSections>Lançamentos manuais nos últimos
-                <button
-                  className={targetDate === 7 ? 'active' : ''}
-                  onClick={() => setTargetDate(7)}
-                >07 dias</button>
-                <button
-                  className={targetDate === 15 ? 'active' : ''}
-                  onClick={() => setTargetDate(15)}
-                >15 dias</button>
-                <button
-                  className={targetDate === 30 ? 'active' : ''}
-                  onClick={() => setTargetDate(30)}
-                >30 dias</button>
+                <C.BtnArea>
+                  <button
+                    className={targetDate === 7 ? 'active' : ''}
+                    onClick={() => setTargetDate(7)}
+                  >07 dias</button>
+                  <button
+                    className={targetDate === 15 ? 'active' : ''}
+                    onClick={() => setTargetDate(15)}
+                  >15 dias</button>
+                  <button
+                    className={targetDate === 30 ? 'active' : ''}
+                    onClick={() => setTargetDate(30)}
+                  >30 dias</button>
+                </C.BtnArea>
               </C.TitleSections>
               <C.SalesArea>
                 <C.ResumeBalanceArea>
@@ -158,10 +164,10 @@ const Dashboard = () => {
       </C.Graphics>
 
       <C.LastSalesArea>
+        <C.TitleLastSales>Últimas vendas</C.TitleLastSales>
         {data.result
           &&
-          <>
-            <C.TitleLastSales>Últimas vendas</C.TitleLastSales>
+          <C.LastSalesAreaCards>
             {data.result.sales.lastSales.length > 0 ? (
               data.result.sales.lastSales.map((item: any, index: number) => (
                 <LastSale key={index} price={item.price} name={item.name} unity={item.unity} quantity={item.quantity} />
@@ -170,7 +176,7 @@ const Dashboard = () => {
               <p style={{ fontSize: '12px' }}>Nenhum registro.</p>
             )
             }
-          </>}
+          </C.LastSalesAreaCards>}
       </C.LastSalesArea>
     </C.Container>
   )
