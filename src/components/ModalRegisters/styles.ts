@@ -21,7 +21,17 @@ export const ModalContent = styled.div`
   width: 500px;
   max-width: 90%;
   overflow-y: auto;
-  max-height: 90%
+  max-height: 90%;
+
+  @media(min-width: 720px){
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.5);
+  }
+ }
 `;
 
 export const ModalHeader = styled.div`

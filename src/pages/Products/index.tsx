@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { useApi } from '../../hooks/useApi';
+import * as C from './styles';
 
 import CommonSections from '../../components/CommonSections';
 
@@ -34,6 +35,11 @@ const Products = () => {
   const [lot, setLot] = useState(0);
   const [validity, setValidity] = useState('');
   const [quantity, setQuantity] = useState(0);
+
+  const [isNewCategory, setIsNewCategory] = useState(false);
+  const [nameNewCategory, setNameNewCategory] = useState('');
+  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState('');
 
   const dataProps: CreateProduct = {
     name,
@@ -75,6 +81,29 @@ const Products = () => {
       }
     ],
     tableTitle: 'Produtos cadastrados'
+  }
+
+  const handleNewCategory = async (e: any) => {
+    e.preventDefault();
+
+    const result = await api.createRegister('categories', { title: nameNewCategory });
+
+    if (result.category) {
+      setCategories(oldArray => [...oldArray,
+      {
+        name: result.category.title,
+        value: result.category.id
+      }
+      ]);
+      setCategory(result.category.id);
+      setIsNewCategory(!isNewCategory);
+      setHasError(false);
+      setError('');
+      setNameNewCategory('');
+    } else if (result.error) {
+      setHasError(true);
+      setError(result.error);
+    }
   }
 
   const handleNewProduct = async () => {
@@ -300,6 +329,32 @@ const Products = () => {
                 dataOptions={categories}
                 value={category}
                 onChange={(e: any) => setCategory(e.target.value)} />
+
+              <C.ButtonNewCategory
+                onClick={(e: any) => { e.preventDefault(); setIsNewCategory(!isNewCategory) }}
+              >
+                Nova categoria
+              </C.ButtonNewCategory>
+
+              {isNewCategory
+                &&
+                <C.NewCategoryArea>
+                  <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+                    <Input
+                      label="Nome da categoria"
+                      placeholder="Smartphones"
+                      value={nameNewCategory}
+                      onChange={(e: any) => setNameNewCategory(e.target.value)}
+                    />
+                    <C.ButtonAddNewCategory
+                      onClick={handleNewCategory}
+                    >
+                      +
+                    </C.ButtonAddNewCategory>
+                  </div>
+                  {hasError && <p>{error}</p>}
+                </C.NewCategoryArea>
+              }
 
               <Select
                 label="Loja"
