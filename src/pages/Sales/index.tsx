@@ -6,6 +6,7 @@ import CommonSections from '../../components/CommonSections';
 
 import ModalRegisters from '../../components/ModalRegisters';
 import Select from '../../components/ModalRegisters/Select';
+import Input from '../../components/ModalRegisters/Input';
 
 import { CreateSale } from '../../types/Sale';
 import { TableRegisters } from '../../types/TableRegisters';
@@ -26,6 +27,7 @@ const Sales = () => {
   const [carriers, setCarriers] = useState<Options[]>([]);
 
   const [product, setProduct] = useState('');
+  const [quantity, setQuantity] = useState(0);
   const [unity, setUnity] = useState('');
   const [client, setClient] = useState('');
   const [seller, setSeller] = useState('');
@@ -33,6 +35,7 @@ const Sales = () => {
 
   const dataProps: CreateSale = {
     product,
+    quantity,
     unity,
     client,
     seller,
@@ -70,6 +73,7 @@ const Sales = () => {
 
   const handleNewSale = async () => {
     setProduct('');
+    setQuantity(0);
     setUnity('');
     setClient('');
     setSeller('');
@@ -172,6 +176,7 @@ const Sales = () => {
 
     if (
       product !== '' &&
+      quantity > 0 &&
       unity !== '' &&
       client !== '' &&
       unity !== '' &&
@@ -199,7 +204,7 @@ const Sales = () => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [product, unity, client, seller, carrier]);
+  }, [product, quantity, unity, client, seller, carrier]);
 
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
@@ -273,6 +278,7 @@ const Sales = () => {
       })();
 
       setProduct(state.register.props.product_id);
+      setQuantity(state.register.props.quantity);
       setUnity(state.register.props.unity_id);
       setClient(state.register.props.client_id);
       setSeller(state.register.props.seller_id);
@@ -301,6 +307,13 @@ const Sales = () => {
                 dataOptions={products}
                 value={product}
                 onChange={(e: any) => setProduct(e.target.value)} />
+
+              <Input
+                label="Quantidade"
+                placeholder="5"
+                value={quantity > 0 ? quantity : ''}
+                onChange={(e: any) => setQuantity(parseInt(e.target.value))}
+              />
 
               <Select
                 label="Loja"

@@ -13,11 +13,13 @@ export type Sale = {
   seller: string;
   carrier_id: string;
   carrier: string;
+  quantity: number;
   status: number;
 }
 
 export type CreateSale = {
   product: string;
+  quantity: number;
   unity: string;
   client: string;
   seller: string;
@@ -30,5 +32,6 @@ export type UpdateSale = {
   client?: string;
   seller?: string;
   carrier?: string;
+  quantity?: number;
   status?: number;
 }
