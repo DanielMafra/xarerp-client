@@ -24,7 +24,6 @@ export type NewCreateUser = {
   email: string;
   unity: string;
   position: string;
-  permissions: string;
 }
 
 export type UpdateUser = {

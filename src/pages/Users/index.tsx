@@ -1,14 +1,12 @@
 import { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { useApi } from '../../hooks/useApi';
-import * as C from './styles';
 
 import CommonSections from '../../components/CommonSections';
 
 import ModalRegisters from '../../components/ModalRegisters';
 import Input from '../../components/ModalRegisters/Input';
 import Select from '../../components/ModalRegisters/Select';
-import Checkbox from '../../components/ModalRegisters/Checkbox';
 
 import { NewCreateUser } from '../../types/UserCreate';
 import { TableRegisters } from '../../types/TableRegisters';
@@ -33,8 +31,7 @@ const Users = () => {
     name,
     email,
     unity,
-    position,
-    permissions: state.register.permissions.join(',')
+    position
   }
 
   const dataTable: TableRegisters = {
@@ -82,53 +79,6 @@ const Users = () => {
     {
       name: 'Depósito',
       value: 'Depósito'
-    }
-  ]
-
-  const dataCheckbox = [
-    {
-      title: 'Lojas',
-      roles: ['view_store', 'create_store', 'update_store', 'delete_store']
-    },
-    {
-      title: 'Produtos',
-      roles: ['view_product', 'create_product', 'update_product', 'delete_product']
-    },
-    {
-      title: 'Clientes',
-      roles: ['view_client', 'create_client', 'update_client', 'delete_client']
-    },
-    {
-      title: 'Vendas',
-      roles: ['view_sale', 'create_sale', 'update_sale', 'delete_sale']
-    },
-    {
-      title: 'Transportadoras',
-      roles: ['view_carrier', 'create_carrier', 'update_carrier', 'delete_carrier']
-    },
-    {
-      title: 'Fornecedores',
-      roles: ['view_provider', 'create_provider', 'update_provider', 'delete_provider']
-    },
-    {
-      title: 'Vendedores',
-      roles: ['view_seller', 'create_seller', 'update_seller', 'delete_seller']
-    },
-    {
-      title: 'Compras',
-      roles: ['view_purchase', 'create_purchase', 'update_purchase', 'delete_purchase']
-    },
-    {
-      title: 'Financeiro',
-      roles: ['view_financial', 'create_financial', 'update_financial', 'delete_financial']
-    },
-    {
-      title: 'Usuários',
-      roles: ['view_user', 'create_user', 'update_user', 'delete_user']
-    },
-    {
-      title: 'Tickets',
-      roles: ['view_ticket', 'create_ticket', 'update_ticket', 'delete_ticket']
     }
   ]
 
@@ -192,8 +142,7 @@ const Users = () => {
       name !== '' &&
       email !== '' &&
       unity !== '' &&
-      position !== '' &&
-      state.register.permissions.length > 0
+      position !== ''
     ) {
       dispatch({
         type: 'REGISTER_CHANGE_ISREADY',
@@ -216,7 +165,7 @@ const Users = () => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [name, email, unity, position, state.register.permissions]);
+  }, [name, email, unity, position]);
 
   useEffect(() => {
     if (state.modalRegisters.editingRegister && state.modalRegisters.registerEditingId !== '') {
@@ -241,12 +190,6 @@ const Users = () => {
       setEmail(state.register.props.email);
       setUnity(state.register.props.unity_id);
       setPosition(state.register.props.position);
-      dispatch({
-        type: 'REGISTER_CHANGE_PERMISSIONS',
-        payload: {
-          permissions: state.register.props.permissions.split(',')
-        }
-      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.modalRegisters.editingRegister, state.modalRegisters.registerEditingId]);
@@ -289,14 +232,6 @@ const Users = () => {
                 dataOptions={dataOptionsArea}
                 value={position || ''}
                 onChange={(e: any) => setPosition(e.target.value)} />
-
-              <C.Title>
-                Permissões de acesso
-              </C.Title>
-
-              {dataCheckbox.map((e, i) => (
-                <Checkbox key={i} title={e.title} roles={e.roles} />
-              ))}
 
             </>
           )}
