@@ -33,6 +33,8 @@ After having cloned the repository and accessed its folder through the terminal,
   npm install
 ```
 
+* Go to /src/services/axios.ts and change baseURL to your API URL
+
 * Make sure you have configured the API and activated it, then run the command below
 
 ```bash
