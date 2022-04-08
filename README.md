@@ -25,6 +25,20 @@ You can view a demo of the front-end with the mocked back-end (using localStorag
 
 ![Xarerp](https://i.imgur.com/hdgFLyS.gif)
 
+## Some features
+
+* ✅ Persistence of user choices
+* ✅ Login persistence (jsonwebtoken)
+* ✅ State persistence with Context API and localStorage
+* ✅ Protected routes
+* ✅ Routes with access permissions based on the logged in user
+* ✅ CRUD for each registration functionality
+* ✅ Rules for not allowing duplicate entries
+* ✅ Search and pagination filters
+* ✅ Charts with metrics from the last 7, 15 and 30 days
+* ✅ Choose between dark and light theme
+* ✅ Responsive for mobile
+
 ## Running the application
 
 After having cloned the repository and accessed its folder through the terminal, run the command below
