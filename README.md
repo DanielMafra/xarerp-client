@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Xarerp - Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+System to manage sales, inventory, employees, stores and more.
 
-## Available Scripts
+## Developed with
 
-In the project directory, you can run:
+* [React](https://reactjs.org/)
+* [Styled Components](https://styled-components.com/)
+* [Recharts](https://recharts.org/en-US/)
+* [Axios](https://axios-http.com/)
 
-### `yarn start`
+This is just the front-end of the application, to get the back-end (API created in Node), go to: [Xarerp - API](https://github.com/DanielMafra/xarerp-api)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You can view a demo of the front-end with the mocked back-end (using localStorage and with some limited functions) by [clicking here](https://danielmafra.github.io/xarerp/).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Basic functionality example
 
-### `yarn test`
+![Xarerp](https://i.imgur.com/qvl8FZG.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Light and Dark theme
 
-### `yarn build`
+![Xarerp](https://i.imgur.com/5E34E2J.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Mobile breakpoint
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Xarerp](https://i.imgur.com/hdgFLyS.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running the application
 
-### `yarn eject`
+After having cloned the repository and accessed its folder through the terminal, run the command below
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+  npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Make sure you have configured the API and activated it, then run the command below
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+  npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Author
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Website - [Daniel Mafra](https://danielmafra.github.io)
+- LinkedIn - [@danielmafradev](https://linkedin.com/in/danielmafradev)
+- Instagram - [@danielmafradev](https://instagram.com/danielmafradev)
